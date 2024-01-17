@@ -1,0 +1,49 @@
+.book {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #e2c4d1;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  animation: animate-in 1s ease-out forwards;
+}
+
+.book a {
+  text-decoration: none;
+}
+
+.author {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #000000;
+  margin: 0;
+  text-align: center;
+}
+
+.title {
+  white-space: pre-wrap;
+  font-size: 1.25rem;
+  margin: 0.25rem 0 0 0;
+  color: #000000;
+  font-weight: bold;
+  text-align: center;  
+}
+
+.days {
+  white-space: pre-wrap;
+  font-size: 1rem;
+  margin: 0.25rem 0 0 0;
+  color: #f309e7;
+  font-weight: bold;
+  text-align: center;
+}
+
+@keyframes animate-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
