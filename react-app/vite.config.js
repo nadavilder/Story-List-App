@@ -5,7 +5,7 @@ import { resolvePath } from 'react-router-dom'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base:"/Story List",
+  base:"/Story-List-App",
   resolve:{
     alias:{
       '@':resolvePath(__dirname,'./src'),
