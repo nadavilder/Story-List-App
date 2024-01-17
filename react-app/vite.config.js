@@ -1,7 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { resolvePath } from 'react-router-dom'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()]
+  plugins: [react()],
+  base:"/Story List",
+  resolve:{
+    alias:{
+      '@':resolvePath(__dirname,'./src'),
+    },
+  },
 })
