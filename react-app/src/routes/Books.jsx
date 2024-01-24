@@ -22,5 +22,6 @@ export async function loader() {
   const response = await fetch('http://localhost:8080/books');
   console.log("response");
   const resData = await response.json();
+  console.log(resData.books);
   return resData.books;
 }

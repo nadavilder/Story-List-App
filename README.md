@@ -25,7 +25,7 @@ Before you begin, ensure you have the following installed:
 
 2. Navigate to the project directory:
 
-   cd my-story-list-app
+   cd react-app
 
 3. Install dependencies:
  
@@ -36,7 +36,11 @@ Before you begin, ensure you have the following installed:
 1. Start the development server:
    npm run dev
 
-   This will launch the app in development mode. Open [http://localhost:3000](http://localhost:3000) in your browser.
+   This will launch the app in development mode. Open http://localhost:5173/Story-List-App/ in your browser.
+
+2. run backend server:
+   cd backend
+   node app.js
 
 2. Begin adding your stories by using the app's intuitive interface.
 

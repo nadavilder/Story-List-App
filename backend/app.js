@@ -27,7 +27,9 @@ app.get('/books/:id', async (req, res) => {
   res.json({ book });
 });
 
+
 app.post('/books', async (req, res) => {
+  console.log("books enter");
   const existingBooks = await getStoredBooks();
   const bookData = req.body;
   const newBook = {
