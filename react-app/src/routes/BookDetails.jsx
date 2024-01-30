@@ -1,15 +1,30 @@
-import { useLoaderData, Link } from 'react-router-dom';
+import { useLoaderData, Link ,useNavigate   } from 'react-router-dom';
+
 
 import Modal from '../components/Modal';
 import classes from './BookDetails.module.css';
-
 function BookDetails() {
+  const navigate = useNavigate();
+
+
+  async function handleClick(id) {
+    const response = await fetch('http://localhost:8080/books/' + id, {
+      method: 'DELETE',
+    });
+    const resData = await response.json();
+    console.log(resData);
+    navigate('/');
+    window.location.reload();
+  }
+  
+  
+
   const book = useLoaderData();
 
   if (!book) {
     return (
       <Modal>
-        <main className={classes.details}>
+        <li className={classes.details}>
           <h1>Could not find book</h1>
           <p>Unfortunately, the requested book could not be found.</p>
           <p>
@@ -17,7 +32,7 @@ function BookDetails() {
               Okay
             </Link>
           </p>
-        </main>
+        </li>
       </Modal>
     );
   }
@@ -29,7 +44,8 @@ function BookDetails() {
         <p className={classes.about}>{book.about}</p>
         <p className={classes.start}>{book.start}</p>
         <p className={classes.end}>{book.end}</p>
-        <p className={classes.end}>{book.days}</p>
+        <p className={classes.days}>{book.days}</p>
+        <button onClick={()=>{handleClick(book.id)}}>delete</button>
       </main>
     </Modal>
   );

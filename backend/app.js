@@ -1,3 +1,4 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -11,7 +12,7 @@ app.use((req, res, next) => {
   // Attach CORS headers
   // Required when using a detached backend (that runs on a different domain)
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
@@ -40,6 +41,21 @@ app.post('/books', async (req, res) => {
   await storeBooks(updatedBooks);
   res.status(201).json({ message: 'Stored new book.', book: newBook });
 });
+
+app.delete('/books/:id', async (req, res) => {
+  console.log("DELETE Request Called for /api endpoint")
+  const storedBooks = await getStoredBooks();
+  console.log("storebook")
+  const updatedBooks = storedBooks.filter((book) => book.id != req.params.id);
+  console.log("updatedBooks")
+  await storeBooks(updatedBooks);
+  res.status(201).json({ message: 'Book Deleted' });
+
+
+})
+
+
+
 
 app.listen(8080,function() {
   console.log("Server started on port 8080.");

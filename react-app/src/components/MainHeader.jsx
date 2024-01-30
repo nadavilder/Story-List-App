@@ -16,6 +16,7 @@ function MainHeader() {
           New Book
         </Link>
       </p>
+    
     </header>
   );
 }
